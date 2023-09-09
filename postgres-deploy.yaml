@@ -21,7 +21,7 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgredb
-      volumes:
+      volumes:  #este conainer vai acessar o persistent volume criado anteriormente
         - name: postgredb
           persistentVolumeClaim:
             claimName: postgres-pv-claim

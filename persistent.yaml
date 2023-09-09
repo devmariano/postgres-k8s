@@ -1,4 +1,4 @@
-kind: PersistentVolume
+kind: PersistentVolume #tipo do volume persistente, dados não são perdidos
 apiVersion: v1
 metadata:
   name: postgres-pv-volume
@@ -6,15 +6,15 @@ metadata:
     type: local
     app: postgres
 spec:
-  storageClassName: manual
+  storageClassName: manual # o nome é dado manualmente
   capacity:
-    storage: 5Gi
+    storage: 5Gi #capacidade do volume
   accessModes:
-    - ReadWriteMany
+    - ReadWriteMany # modelo de acesso, varios podem ler e varios podem escrever
   hostPath:
-    path: "/mnt/data"
+    path: "/mnt/data" #caminho do banco de dados dentro do kubernetes
 ---
-kind: PersistentVolumeClaim
+kind: PersistentVolumeClaim #atribuindo o volume criado ao app postgress 
 apiVersion: v1
 metadata:
   name: postgres-pv-claim

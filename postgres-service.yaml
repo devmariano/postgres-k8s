@@ -1,11 +1,11 @@
 apiVersion: v1
-kind: Service
+kind: Service #controla o acesso ao postgres
 metadata:
   name: postgres
   labels:
     app: postgres
 spec:
-  type: NodePort
+  type: NodePort #cria uma porta 5432 e acessa o postgress , ele pluga na frente do nosso deploy um service que age como um porteiro
   ports:
     - port: 5432
   selector:
